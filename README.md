@@ -20,14 +20,13 @@ entsprechenden Bergs. Wie wäre es jetzt also, wenn man diese Funktionen kombini
 ergänzt? Der Mountrainer setzt sich genau das zum Ziel. Wanderfreudige Berggänger sollen alle ihre Touren erfassen 
 können mit verschiedenen Parametern wie:
 
-- Alter User
-- Geschlecht User
-- Dauer der Wanderung
-- Anzahl zurückgelegter Höhenmeter
-- Anzahl zurückgelegter Kilometer
-- Durchschnittliche Tagestemperatur
-- Wetterlage
-- Region des Bergs
+- Vorname
+- Nachname
+- Datum
+- Zurückgelegte Kilometer
+- Zurückgelegte Höhenmeter
+- Dauer
+- Temperatur
 
 Das Programm erfasst diese Daten, teilt den User danach in eine Kategorie ein (anhand seiner Leistung) und bietet die 
 Möglichkeit, Auswertungen zu seiner Aktivität über eine bestimmte Zeitspanne auszugeben. Die Daten werden mittels 
@@ -53,3 +52,4 @@ Je nach Verlauf der erfassten Daten besteht die Möglichkeit, eine Kategorie auf
 ##Ungelöste Probleme
 - Was wurde nicht gelöst?
 - Welche Verbesserungen könnten noch gemacht werden? 
+- 
