@@ -42,7 +42,24 @@ def formular():
 
 @app.route("/analyse/", methods=['GET', 'POST'])
 def analyse():
+    with open("aktivitaeten.json") as open_file:
+        json_as_string = open_file.read()
+        my_read_dict = loads(json_as_string)
+
+        #berechnung
+
     return render_template("analyse.html")
+
+
+@app.route("/deinjahr/", methods=['GET', 'POST'])
+def deinjahr():
+    return render_template("deinjahr.html")
+
+
+@app.route("/aboutme/", methods=['GET', 'POST'])
+def aboutme():
+    return render_template("aboutme.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
