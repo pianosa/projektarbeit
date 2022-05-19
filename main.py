@@ -4,7 +4,6 @@ from flask import request
 import daten
 import json
 
-
 app = Flask("Mountrainer")
 
 
@@ -35,7 +34,7 @@ def formular():
 
         with open("aktivitaeten.json", "w") as open_file:
             json.dump(datei_inhalt, open_file, indent=4) #indent=4 sieht schöner aussieht
-        return str("Danke für deine Eingabe, die Daten wurden gespeichert.")
+        return render_template("bestaetigung.html")
     else:
         return render_template("formular.html")
 
@@ -44,11 +43,17 @@ def formular():
 def analyse():
     with open("aktivitaeten.json") as open_file:
         json_as_string = open_file.read()
-        my_read_dict = loads(json_as_string)
+        data_list = json.loads(json_as_string)
 
-        #berechnung
+    summe=0
+    for item in data_list:
+        print(item)
+        print(item['Zurueckgelegte Km'])
+        a = item
+        b = item['Zurueckgelegte Km']
+        c = ['a', 'b', 'c']
 
-    return render_template("analyse.html")
+    return render_template("analyse.html", output=a, km=b, c=c)
 
 
 @app.route("/deinjahr/", methods=['GET', 'POST'])
@@ -59,6 +64,11 @@ def deinjahr():
 @app.route("/aboutme/", methods=['GET', 'POST'])
 def aboutme():
     return render_template("aboutme.html")
+
+
+@app.route("/bestaetigung/", methods=['GET', 'POST'])
+def bestaetigung():
+    return render_template("bestaetigung.html")
 
 
 if __name__ == "__main__":

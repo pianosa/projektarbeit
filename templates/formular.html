@@ -1,15 +1,33 @@
-{% include "header.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <title>Mountrainer</title>
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-center py-3">
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="/formular" class="nav-link active">Dateneingabe</a></li>
+            <li class="nav-item"><a href="/analyse" class="nav-link">Analyse</a></li>
+            <li class="nav-item"><a href="/deinjahr" class="nav-link">Dein Jahr</a></li>
+            <li class="nav-item"><a href="/aboutme" class="nav-link">About me</a></li>
+          </ul>
+        </header>
+      </div>
 
     <h3>Mountrainer</h3>
     <p>Erfasse hier deine Daten um eine Analyse deiner Abenteuer zu machen.</p>
     <form method="POST">
         <input type="text" name="vorname" placeholder="Vorname"><br><br>
         <input type="text" name="nachname" placeholder="Nachname"><br><br>
-        <input type="text" name="datum" placeholder="Datum"><br><br>
+        <input type="text" name="datum" placeholder="Datum Wanderung"><br><br>
         <input type="text" name="zurueckgelegte Km" placeholder="Zurueckgelegte Km"><br><br>
         <input type="text" name="zurueckgelegte Hm" placeholder="Zurueckgelegte Hm"><br><br>
         <input type="text" name="temperatur" placeholder="Temperatur"><br><br>
-        <input type="text" name="dauer" placeholder="Dauer"><br><br>
+        <input type="text" name="dauer" placeholder="Dauer (in h)"><br><br>
         <button type="submit">Senden</button>
     </form>
 
