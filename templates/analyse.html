@@ -6,30 +6,46 @@
     <title>Mountrainer</title>
 </head>
 <body>
-    <div class="container">
-        <header class="d-flex justify-content-center py-3">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand navbar-light bg-light">
           <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="/formular" class="nav-link">Dateneingabe</a></li>
             <li class="nav-item"><a href="/analyse" class="nav-link active">Analyse</a></li>
             <li class="nav-item"><a href="/deinjahr" class="nav-link">Dein Jahr</a></li>
-            <li class="nav-item"><a href="/aboutme" class="nav-link">About me</a></li>
           </ul>
-        </header>
+        </nav>
       </div>
 
-    <p>Das ist ein Test.</p>
-    <!--<p>{{summe}}</p>-->
+    <div class="container-fluid">
+        <h3>Übersicht aller Aktivitäten</h3>
+        {% if daten_inhalt %}
+            <table>
+                <!--<thead style="text-align:left">
+                    <tr>
+                        <th>Vorname</th>
+                        <th>Nachname</th>
+                        <th>Datum</th>
+                        <th>Zurückgelegte Km</th>
+                        <th>Zurückgelegte Hm</th>
+                        <th>Dauer</th>
+                    </tr>
+                </thead> -->
+                <tbody>
+                    {% for x in daten_inhalt: %}
+                    {% for item, value in x.items(): %}
+                    <tr>
+                        <th>{{ item }}</th>
+                        <th>{{ value }}</th>
+                    </tr>
+                    {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p> Keine Einträge vorhanden.</p>
+        {% endif %}
+    </div>
 
-    {{output}}
-
-    <p>Sie sind {{km}} km gelaufen</p>
-
-    <ul>
-        {%for item in c %}
-    <li>{{item}} </li>
-    {% endfor %}
-
-    </ul>
 
 {% include "footer.html" %}
