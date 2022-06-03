@@ -16,29 +16,29 @@
           </ul>
         </nav>
       </div>
+    <br>
 
-    <div class="container-fluid">
+    <div class="container-fluid table-responsive">
         <h3>Übersicht aller Aktivitäten</h3>
+        <br>
         {% if daten_inhalt %}
-            <table>
-                <!--<thead style="text-align:left">
+            <table class="table table-striped table-sm">
+                <thead>
                     <tr>
-                        <th>Vorname</th>
-                        <th>Nachname</th>
+                        <th>Name</th>
                         <th>Datum</th>
-                        <th>Zurückgelegte Km</th>
-                        <th>Zurückgelegte Hm</th>
-                        <th>Dauer</th>
+                        <th>Kilometer</th>
+                        <th>Hoehenmeter</th>
+                        <th>Dauer (in h)</th>
                     </tr>
-                </thead> -->
+                </thead>
                 <tbody>
-                    {% for x in daten_inhalt: %}
-                    {% for item, value in x.items(): %}
+                    {% for eintrag in daten_inhalt: %}
                     <tr>
-                        <th>{{ item }}</th>
-                        <th>{{ value }}</th>
+                        {% for item, value in eintrag.items(): %}
+                        <td>{{ value }}</td>
+                        {% endfor %}
                     </tr>
-                    {% endfor %}
                     {% endfor %}
                 </tbody>
             </table>

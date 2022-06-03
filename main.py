@@ -48,7 +48,33 @@ def analyse():
 
 
 @app.route("/deinjahr/", methods=['GET', 'POST'])
-def deinjahr():
+def berechnung():
+    with open("aktivitaeten.json") as open_file:
+        json_as_string = open_file.read()
+        my_read_dict = loads(json_as_string)
+
+    summe_janina = 0
+    summe_anne = 0
+    summe_laura = 0
+
+    for key, value in my_read_dict():
+        if value["name"] == "Janina":
+            try:
+                summe_janina += float(value["Betrag"])
+            except:
+                continue
+
+        elif value["name"] == "Anne":
+            try:
+                summe_anne += float(value["Betrag"])
+            except:
+                continue
+
+        elif value["name"] == "Laura":
+            try:
+                summe_laura += float(value["Betrag"])
+            except:
+                continue
     return render_template("deinjahr.html")
 
 

@@ -16,23 +16,51 @@
           </ul>
         </nav>
       </div>
+    <br>
     <div class="container-fluid">
         <h3>Mountrainer</h3>
         <p>Erfasse hier deine Daten um eine Analyse deiner Abenteuer zu machen.</p>
-        <form method="POST">
+            <form method="POST">
             <select class="form-select" aria-label="Default select example" name="name">
                 <option selected>Wähle deinen Namen</option>
-                <option value="Luca">Janina</option>
-                <option value="Mirjam">Anne</option>
-                <option value="Sarina">Laura</option>
+                <option value="Janina">Janina</option>
+                <option value="Anne">Anne</option>
+                <option value="Laura">Laura</option>
             </select>
-            <br><br>
-            <input type="text" name="datum" placeholder="Datum Wanderung"><br><br>
-            <input type="text" name="zurueckgelegte Km" placeholder="Zurueckgelegte Km"><br><br>
-            <input type="text" name="zurueckgelegte Hm" placeholder="Zurueckgelegte Hm"><br><br>
-            <input type="text" name="dauer" placeholder="Dauer (in h)"><br><br>
-            <button type="submit">Senden</button>
-        </form>
+
+            <br>
+
+            <div class="form-group">
+               <label for="datum">Wann hast du deine Wanderung gemacht?</label>
+                <input type="text" class="form-control" id="datum" placeholder="Datum der Wanderung (Format: 02.05.2002)" name="datum">
+            </div>
+
+            <br>
+
+             <div class="form-group">
+               <label for="zurueckgelegte Km">Wie viele Kilometer hast du mit deiner Wanderung gemacht?</label>
+                <input type="text" class="form-control" id="zurueckgelegte Km" placeholder="Anzahl Zurückgelegte Km" name="zurueckgelegte Km">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+               <label for="zurueckgelegte Hm">Wie viele Hoehenmeter hast du mit deiner Wanderung gemacht?</label>
+                <input type="text" class="form-control" id="zurueckgelegte Hm" placeholder="Anzahl Zurückgelegte Hm" name="zurueckgelegte Hm">
+            </div>
+
+            <br>
+
+            <div class="form-group">
+               <label for="dauer">Wie lange warst du unterwegs?</label>
+                <input type="text" class="form-control" id="dauer" placeholder="Dauer der Wanderung (in h)" name="dauer">
+            </div>
+
+            <br>
+
+            <button type="submit" class="btn btn-secondary btn-lg btn-block">Senden</button>
+
+            </form>
     </div>
 
 {% include "footer.html" %}
