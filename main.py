@@ -20,8 +20,8 @@ def formular():
         data = request.form
         name = data["name"]
         datum = data["datum"]
-        zurueckgelegte_Km = data["zurueckgelegte Km"]
-        zurueckgelegte_Hm = data["zurueckgelegte Hm"]
+        zurueckgelegte_Km = data["zurueckgelegte_Km"]
+        zurueckgelegte_Hm = data["zurueckgelegte_Hm"]
         dauer = data["dauer"]
         try:
             with open("aktivitaeten.json", "r") as open_file: #r für read = lesen
@@ -29,7 +29,7 @@ def formular():
         except FileNotFoundError:
             datei_inhalt = []
 
-        my_dict = {"Name": name, "Datum": datum, "Zurueckgelegte Km": zurueckgelegte_Km, "Zurueckgelegte Hm": zurueckgelegte_Hm, "Dauer": dauer}
+        my_dict = {"Name": name, "Datum": datum, "zurueckgelegte_Km": zurueckgelegte_Km, "zurueckgelegte_Hm": zurueckgelegte_Hm, "Dauer": dauer}
         datei_inhalt.append(my_dict)
 
         with open("aktivitaeten.json", "w") as open_file:
@@ -47,40 +47,40 @@ def analyse():
     return render_template("analyse.html", daten_inhalt=daten_inhalt)
 
 
-@app.route("/deinjahr/", methods=['GET', 'POST'])
+@app.route("/deinjahr/")
 def berechnung():
-    with open("aktivitaeten.json") as open_file:
+    with open("aktivitaeten.json", "r") as open_file:
         json_as_string = open_file.read()
-        my_read_dict = loads(json_as_string)
+        daten_inhalt = loads(json_as_string)
 
-    summe_janina = 0
-    summe_anne = 0
-    summe_laura = 0
 
-    for key, value in my_read_dict():
-        if value["name"] == "Janina":
+    summe_km_janina = 0
+    summe_km_anne = 0
+    summe_km_laura = 0
+
+
+    for eintrag in daten_inhalt:
+        if eintrag["Name"] == "Janina":
             try:
-                summe_janina += float(value["Betrag"])
+                summe_km_janina += float(eintrag["zurueckgelegte_Km"])
+            except:
+                continue
+        elif eintrag["Name"] == "Anne":
+            try:
+                summe_km_anne += float(eintrag["zurueckgelegte_Km"])
+            except:
+                continue
+        elif eintrag["Name"] == "Laura":
+            try:
+                summe_km_laura += float(eintrag["zurueckgelegte_Km"])
             except:
                 continue
 
-        elif value["name"] == "Anne":
-            try:
-                summe_anne += float(value["Betrag"])
-            except:
-                continue
 
-        elif value["name"] == "Laura":
-            try:
-                summe_laura += float(value["Betrag"])
-            except:
-                continue
-    return render_template("deinjahr.html")
-
-
-@app.route("/aboutme/", methods=['GET', 'POST'])
-def aboutme():
-    return render_template("aboutme.html")
+    return render_template("deinjahr.html",
+                           summe_km_janina=summe_km_janina,
+                           summe_km_anne=summe_km_anne,
+                           summe_km_laura=summe_km_laura)
 
 
 @app.route("/bestaetigung/", methods=['GET', 'POST'])
