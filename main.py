@@ -1,9 +1,9 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-import daten
 import json
 from json import loads
+app = Flask("module")
 
 
 app = Flask("Mountrainer")
@@ -53,11 +53,15 @@ def berechnung():
         json_as_string = open_file.read()
         daten_inhalt = loads(json_as_string)
 
-
     summe_km_janina = 0
+    summe_hm_janina = 0
+    summe_h_janina = 0
     summe_km_anne = 0
+    summe_hm_anne = 0
+    summe_h_anne = 0
     summe_km_laura = 0
-
+    summe_hm_laura = 0
+    summe_h_laura = 0
 
     for eintrag in daten_inhalt:
         if eintrag["Name"] == "Janina":
@@ -77,10 +81,52 @@ def berechnung():
                 continue
 
 
+    for eintrag in daten_inhalt:
+        if eintrag["Name"] == "Janina":
+            try:
+                summe_hm_janina += float(eintrag["zurueckgelegte_Hm"])
+            except:
+                continue
+        elif eintrag["Name"] == "Anne":
+            try:
+                summe_hm_anne += float(eintrag["zurueckgelegte_Hm"])
+            except:
+                continue
+        elif eintrag["Name"] == "Laura":
+            try:
+                summe_hm_laura += float(eintrag["zurueckgelegte_Hm"])
+            except:
+                continue
+
+
+    for eintrag in daten_inhalt:
+        if eintrag["Name"] == "Janina":
+            try:
+                summe_h_janina += float(eintrag["Dauer"])
+            except:
+                continue
+        elif eintrag["Name"] == "Anne":
+            try:
+                summe_h_anne += float(eintrag["Dauer"])
+            except:
+                continue
+        elif eintrag["Name"] == "Laura":
+            try:
+                summe_h_laura += float(eintrag["Dauer"])
+            except:
+                continue
+
+
     return render_template("deinjahr.html",
                            summe_km_janina=summe_km_janina,
                            summe_km_anne=summe_km_anne,
-                           summe_km_laura=summe_km_laura)
+                           summe_km_laura=summe_km_laura,
+                           summe_hm_janina=summe_hm_janina,
+                           summe_hm_anne=summe_hm_anne,
+                           summe_hm_laura=summe_hm_laura,
+                           summe_h_janina=summe_h_janina,
+                           summe_h_anne=summe_h_anne,
+                           summe_h_laura=summe_h_laura)
 
 
 @app.route("/bestaetigung/", methods=['GET', 'POST'])
