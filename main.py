@@ -3,7 +3,8 @@ from flask import render_template
 from flask import request
 import json
 from json import loads
-app = Flask("module")
+import plotly.express as px
+from plotly.offline import plot
 
 
 app = Flask("Mountrainer")
@@ -33,7 +34,7 @@ def formular():
         datei_inhalt.append(my_dict)
 
         with open("aktivitaeten.json", "w") as open_file:
-            json.dump(datei_inhalt, open_file, indent=4) #indent=4 sieht schöner aussieht
+            json.dump(datei_inhalt, open_file, indent=4)  # indent=4 sieht schöner aussieht
         return render_template("bestaetigung.html")
     else:
         return render_template("formular.html")
@@ -80,7 +81,6 @@ def berechnung():
             except:
                 continue
 
-
     for eintrag in daten_inhalt:
         if eintrag["Name"] == "Janina":
             try:
@@ -97,7 +97,6 @@ def berechnung():
                 summe_hm_laura += float(eintrag["zurueckgelegte_Hm"])
             except:
                 continue
-
 
     for eintrag in daten_inhalt:
         if eintrag["Name"] == "Janina":
@@ -116,6 +115,47 @@ def berechnung():
             except:
                 continue
 
+    if summe_hm_janina <= 5000:
+        print("Murmeltier")
+    elif summe_hm_janina <= 10000:
+        print("Gämse")
+    elif summe_hm_janina <= 15000:
+        print("Steinbock")
+
+    if summe_hm_anne >= 5000:
+        print("Murmeltier")
+    elif summe_hm_anne >= 10000:
+        print("Gämse")
+    elif summe_hm_anne >= 15000:
+        print("Steinbock")
+
+    if summe_hm_laura >= 5000:
+        print("Murmeltier")
+    elif summe_hm_laura >= 10000:
+        print("Gämse")
+    elif summe_hm_laura >= 15000:
+        print("Steinbock")
+
+    balkendiagramm_hm = px.bar(
+            x=["Janina", "Anne", "Laura"],
+            y=[summe_hm_janina, summe_hm_anne, summe_hm_laura],
+            labels={"x": "Name", "y": "Anzahl hm"}
+    )
+    div_balkendiagramm_hm = plot(balkendiagramm_hm, output_type="div")
+
+    balkendiagramm_km = px.bar(
+            x=["Janina", "Anne", "Laura"],
+            y=[summe_km_janina, summe_km_anne, summe_km_laura],
+            labels={"x": "Name", "y": "Anzahl km"}
+    )
+    div_balkendiagramm_km = plot(balkendiagramm_km, output_type="div")
+
+    balkendiagramm_h = px.bar(
+            x=["Janina", "Anne", "Laura"],
+            y=[summe_h_janina, summe_h_anne, summe_h_laura],
+            labels={"x": "Name", "y": "Anzahl h"}
+    )
+    div_balkendiagramm_h = plot(balkendiagramm_h, output_type="div")
 
     return render_template("deinjahr.html",
                            summe_km_janina=summe_km_janina,
@@ -126,7 +166,10 @@ def berechnung():
                            summe_hm_laura=summe_hm_laura,
                            summe_h_janina=summe_h_janina,
                            summe_h_anne=summe_h_anne,
-                           summe_h_laura=summe_h_laura)
+                           summe_h_laura=summe_h_laura,
+                           balkendiagramm_hm=div_balkendiagramm_hm,
+                           balkendiagramm_km=div_balkendiagramm_km,
+                           balkendiagramm_h=div_balkendiagramm_h)
 
 
 @app.route("/bestaetigung/", methods=['GET', 'POST'])

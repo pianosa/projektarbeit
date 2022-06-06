@@ -17,7 +17,7 @@
     <br>
 
     <div class="container-fluid">
-        <h3>Rückblick auf das Jahr deiner Wandertruppe</h3>
+        <h3>Rückblick auf das Jahr deiner Wandertruppe</h3> <br>
         <h6>Janina:</h6>
         <p>Anzahl km: {{ summe_km_janina }}</p>
         <p>Anzahl hm: {{ summe_hm_janina }}</p>
@@ -30,7 +30,20 @@
         <p>Anzahl km: {{ summe_km_laura }}</p>
         <p>Anzahl hm: {{ summe_hm_laura }}</p>
         <p>Anzahl h: {{ summe_h_laura }}</p><br>
-    </div>
+    </div> <!-- Hier endet Übersicht der Leistungen-->
 
+    <div class="container-fluid">
+        <h5>Übersicht Höhenmeter:</h5>
+        {{ balkendiagramm_hm|safe }}
+        <br>
+
+        <h5>Übersicht Kilometer:</h5>
+        {{ balkendiagramm_km|safe }}
+        <br>
+
+        <h5>Übersicht Zeit:</h5>
+        {{ balkendiagramm_h|safe }}
+        <br><br><br>
+    </div>
 
 {% include "footer.html" %}

@@ -20,21 +20,19 @@ entsprechenden Bergs. Wie wäre es jetzt also, wenn man diese Funktionen kombini
 ergänzt? Der Mountrainer setzt sich genau das zum Ziel. Wanderfreudige Berggänger sollen alle ihre Touren erfassen 
 können mit verschiedenen Parametern wie:
 
-- Vorname
-- Nachname
+- Name
 - Datum
 - Zurückgelegte Kilometer
 - Zurückgelegte Höhenmeter
 - Dauer
-- Temperatur
 
 Das Programm erfasst diese Daten, teilt den User danach in eine Kategorie ein (anhand seiner Leistung) und bietet die 
 Möglichkeit, Auswertungen zu seiner Aktivität über eine bestimmte Zeitspanne auszugeben. Die Daten werden mittels 
 Diagrammen grafisch dargestellt und die Kategorie wird dem User angezeigt. Dazu gehören Folgende:
 
-- Murmeltier
-- Gämse
-- Steinbock
+- Murmeltier (5'000 hm)
+- Gämse (10'000 hm)
+- Steinbock (15'000 hm)
 
 Je nach Verlauf der erfassten Daten besteht die Möglichkeit, eine Kategorie aufzusteigen. 
 
