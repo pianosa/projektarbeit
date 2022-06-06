@@ -15,9 +15,9 @@ def index():
     return render_template("index.html")
 
 
-@app.route("/formular/", methods=['GET', 'POST'])  # Verlinkung Formular
+@app.route("/formular/", methods=["GET", "POST"])  # Verlinkung Formular
 def formular():
-    if request.method == 'POST':
+    if request.method == "POST":
         data = request.form
         name = data["name"]
         datum = data["datum"]
@@ -30,7 +30,8 @@ def formular():
         except FileNotFoundError:
             datei_inhalt = []
 
-        my_dict = {"Name": name, "Datum": datum, "zurueckgelegte_Km": zurueckgelegte_Km, "zurueckgelegte_Hm": zurueckgelegte_Hm, "Dauer": dauer}
+        my_dict = {"Name": name, "Datum": datum, "zurueckgelegte_Km": zurueckgelegte_Km,
+                   "zurueckgelegte_Hm": zurueckgelegte_Hm, "Dauer": dauer}
         datei_inhalt.append(my_dict)
 
         with open("aktivitaeten.json", "w") as open_file:
@@ -172,7 +173,7 @@ def berechnung():
                            balkendiagramm_h=div_balkendiagramm_h)
 
 
-@app.route("/bestaetigung/", methods=['GET', 'POST'])
+@app.route("/bestaetigung/", methods=["GET", "POST"])
 def bestaetigung():
     return render_template("bestaetigung.html")
 
