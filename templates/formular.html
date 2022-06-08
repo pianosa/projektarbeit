@@ -18,9 +18,9 @@
     <div class="container-fluid">
         <h3>Datenerfassung</h3>
         <p>Erfasse hier deine Daten um eine Analyse deiner Abenteuer zu machen.</p>
-            <form method="POST">
+            <form method="POST"> <!-- Datenerfassung für die json-Datei im Post-Verfahren; persistente Daten -->
             <select class="form-select" aria-label="Default select example" name="name">
-                <option selected>Wähle deinen Namen</option>
+                <option selected>Wähle deinen Namen</option> <!-- Dropdown -->
                 <option value="Janina">Janina</option>
                 <option value="Anne">Anne</option>
                 <option value="Laura">Laura</option>
@@ -28,7 +28,7 @@
 
             <br>
 
-            <div class="form-group">
+            <div class="form-group"> <!-- freie Texteingabe -->
                <label for="datum">Wann hast du deine Wanderung gemacht?</label>
                 <input type="text" class="form-control" id="datum" placeholder="Datum der Wanderung (Format: 02.05.2002)" name="datum">
             </div>

@@ -16,10 +16,10 @@
     </nav>
     <br>
 
-    <div class="container-fluid table-responsive">
+    <div class="container-fluid table-responsive"> <!-- Tabelle mit Daten aus json-Datei -->
         <h3>Übersicht aller Aktivitäten</h3>
         <br>
-        {% if daten_inhalt %}
+        {% if daten_inhalt %}  <!-- Jinja Code: Verbindung Python und HTML -->
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
@@ -31,9 +31,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for eintrag in daten_inhalt: %}
+                    {% for eintrag in daten_inhalt: %} <!-- for-Schleife mit Jinja für Liste in json-Datei -->
                     <tr>
-                        {% for item, value in eintrag.items(): %}
+                        {% for item, value in eintrag.items(): %} <!-- for-Schleife mit Jinja für Dictionary in Liste in json -->
                         <td>{{ value }}</td>
                         {% endfor %}
                     </tr>
@@ -44,7 +44,7 @@
             <p> Keine Einträge vorhanden.</p>
         {% endif %}
         <br>
-        <a class="btn btn-secondary" href="/formular/" role="button">Neuer Eintrag</a>
+        <a class="btn btn-secondary" href="/formular/" role="button">Neuer Eintrag</a> <!-- Link auf Formular -->
     </div>
 
 

@@ -7,7 +7,7 @@
 </head>
 <body>
     <nav class="container-fluid p-3 p-md-3 navbar-expand navbar-light bg-light">
-          <ul class="nav nav-pills">
+          <ul class="nav nav-pills"> <!-- Navigation jeweils separat, dass Aktive-Button gesetzt werden kann. -->
             <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="/formular" class="nav-link">Erfassung</a></li>
             <li class="nav-item"><a href="/analyse" class="nav-link">Wanderungen</a></li>
@@ -21,7 +21,7 @@
         <p>Hey Laura, Anne und Janina! Schön, dass ihr euch als Wandergruppe für den Mountrainer entschieden habt.
             Es ist bereits alles startklar für euch und ihr könnt mit dem Tracken eurer Wanderungen beginnen. <br>
             Hier eine Übersicht über die verschiedenen Möglichkeiten, die wir euch bieten:</p>
-            <ul>
+            <ul> <!-- Verlinkung auf einzelne Menu-Punkte -->
                 <li><a href="/formular">Erfassen deiner Wanderung</a></li>
                 <li><a href="/analyse">Alle erfassten Wanderungen</a></li>
                 <li><a href="/deinjahr">Auswertung eurer Leistung</a></li>
@@ -30,6 +30,7 @@
             Auf viele atemberaubende Aussichten, einzigartige Gipfelmomente und wunderschöne Erlebnise.
             Berg Heil!
         </p>
+        <img src="../images/IMG_6609.jpg" alt="Berglandschaft">
     </div>
 
-{% include "footer.html" %}
+{% include "footer.html" %} <!-- Zugriff auf separate html-Datei von Footer mit Hilfe von Jinja -->

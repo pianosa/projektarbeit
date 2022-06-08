@@ -25,7 +25,7 @@ def formular():
         zurueckgelegte_Hm = data["zurueckgelegte_Hm"]
         dauer = data["dauer"]
         try:
-            with open("aktivitaeten.json", "r") as open_file: #r für read = lesen
+            with open("aktivitaeten.json", "r") as open_file:  # r für read = lesen
                 datei_inhalt = json.load(open_file)
         except FileNotFoundError:
             datei_inhalt = []
@@ -41,7 +41,7 @@ def formular():
         return render_template("formular.html")
 
 
-@app.route("/analyse/")
+@app.route("/analyse/")   # Verlinkung Wanderungen
 def analyse():
     with open("aktivitaeten.json") as open_file:
         json_as_string = open_file.read()
@@ -49,8 +49,8 @@ def analyse():
     return render_template("analyse.html", daten_inhalt=daten_inhalt)
 
 
-@app.route("/deinjahr/")
-def berechnung():
+@app.route("/deinjahr/")  # Verlinkung Auswertung Wanderungen
+def berechnung():  # Berechnung Summe der Attribute einer Wanderung
     with open("aktivitaeten.json", "r") as open_file:
         json_as_string = open_file.read()
         daten_inhalt = loads(json_as_string)
@@ -65,7 +65,7 @@ def berechnung():
     summe_hm_laura = 0
     summe_h_laura = 0
 
-    for eintrag in daten_inhalt:
+    for eintrag in daten_inhalt:  # for-Schleife um Summe zu ziehen für Kilometer
         if eintrag["Name"] == "Janina":
             try:
                 summe_km_janina += float(eintrag["zurueckgelegte_Km"])
@@ -82,7 +82,7 @@ def berechnung():
             except:
                 continue
 
-    for eintrag in daten_inhalt:
+    for eintrag in daten_inhalt:  # for-Schleife um Summe zu ziehen für Höhenmeter
         if eintrag["Name"] == "Janina":
             try:
                 summe_hm_janina += float(eintrag["zurueckgelegte_Hm"])
@@ -99,7 +99,7 @@ def berechnung():
             except:
                 continue
 
-    for eintrag in daten_inhalt:
+    for eintrag in daten_inhalt:  # for-Schleife um Summe zu ziehen für Stunden
         if eintrag["Name"] == "Janina":
             try:
                 summe_h_janina += float(eintrag["Dauer"])
@@ -121,21 +121,21 @@ def berechnung():
             y=[summe_hm_janina, summe_hm_anne, summe_hm_laura],
             labels={"x": "Name", "y": "Anzahl hm"}
     )
-    div_balkendiagramm_hm = plot(balkendiagramm_hm, output_type="div")
+    div_balkendiagramm_hm = plot(balkendiagramm_hm, output_type="div")  # Balkendiagramm für Vergleich Höhenmeter
 
     balkendiagramm_km = px.bar(
             x=["Janina", "Anne", "Laura"],
             y=[summe_km_janina, summe_km_anne, summe_km_laura],
             labels={"x": "Name", "y": "Anzahl km"}
     )
-    div_balkendiagramm_km = plot(balkendiagramm_km, output_type="div")
+    div_balkendiagramm_km = plot(balkendiagramm_km, output_type="div")  # Balkendiagramm für Vergleich Kilometer
 
     balkendiagramm_h = px.bar(
             x=["Janina", "Anne", "Laura"],
             y=[summe_h_janina, summe_h_anne, summe_h_laura],
             labels={"x": "Name", "y": "Anzahl h"}
     )
-    div_balkendiagramm_h = plot(balkendiagramm_h, output_type="div")
+    div_balkendiagramm_h = plot(balkendiagramm_h, output_type="div")  # Balkendiagramm für Vergleich Stunden
 
     return render_template("deinjahr.html",
                            summe_km_janina=summe_km_janina,
@@ -152,7 +152,7 @@ def berechnung():
                            balkendiagramm_h=div_balkendiagramm_h)
 
 
-@app.route("/bestaetigung/", methods=["GET", "POST"])
+@app.route("/bestaetigung/", methods=["GET", "POST"])  # kein verlinkter Menu-Punkt aber eine Seite für Bestätigung
 def bestaetigung():
     return render_template("bestaetigung.html")
 

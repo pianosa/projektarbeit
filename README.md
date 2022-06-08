@@ -52,3 +52,10 @@ sie benutzen.
 - Die Ladezeit für den Reiter "Auswertung" ist sehr lange, diese würde sich bestimmt verkürzen lassen durch Korrekturen.
 - Die Route für die einzelnen Menu-Punkte sind teilweise nicht gleich benannt wie die Menu-Punkte, das könnte zu 
 Verwirrung beim User führen. 
+- Die Entwicklerin hätte mehr mit Kommentaren arbeiten können, für jede Funktion. 
+- Die Navigation wurde jeweils in jedes einzelne HTML-Dokument integriert, dass der jeweilige Standort mit einem 
+Active-Button gekennzeichnet werden kann. Das könnte bestimmt noch verbessert werden. 
+- Es könnte für einzelne Definitionen in der Datei main.py ein separates Python erstellt werden und danach eingebunden 
+werden. Das würde die Ladezeit der Applikation verkürzen.
+- Die Tabelle der Wanderungen könnte optimiert werden, indem man einzelne Spalten filtern oder die Reihenfolge 
+steuern kann. 

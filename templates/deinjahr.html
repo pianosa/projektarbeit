@@ -32,13 +32,13 @@
         <p>Anzahl h: {{ summe_h_laura }}</p><br>
     </div> <!-- Hier endet Übersicht der Leistungen-->
 
-    <div class="container-fluid">
-        <h5>Übersicht Höhenmeter:</h5>
-        {{ balkendiagramm_hm|safe }}
-        <br>
-
+    <div class="container-fluid"> <!-- Hier werden 3 Diagramme aufgezeigt -->
         <h5>Übersicht Kilometer:</h5>
         {{ balkendiagramm_km|safe }}
+        <br>
+
+        <h5>Übersicht Höhenmeter:</h5>
+        {{ balkendiagramm_hm|safe }}
         <br>
 
         <h5>Übersicht Zeit:</h5>
