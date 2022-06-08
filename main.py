@@ -116,27 +116,6 @@ def berechnung():
             except:
                 continue
 
-    if summe_hm_janina <= 5000:
-        print("Murmeltier")
-    elif summe_hm_janina <= 10000:
-        print("Gämse")
-    elif summe_hm_janina <= 15000:
-        print("Steinbock")
-
-    if summe_hm_anne >= 5000:
-        print("Murmeltier")
-    elif summe_hm_anne >= 10000:
-        print("Gämse")
-    elif summe_hm_anne >= 15000:
-        print("Steinbock")
-
-    if summe_hm_laura >= 5000:
-        print("Murmeltier")
-    elif summe_hm_laura >= 10000:
-        print("Gämse")
-    elif summe_hm_laura >= 15000:
-        print("Steinbock")
-
     balkendiagramm_hm = px.bar(
             x=["Janina", "Anne", "Laura"],
             y=[summe_hm_janina, summe_hm_anne, summe_hm_laura],

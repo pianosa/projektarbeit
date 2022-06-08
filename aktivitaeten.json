@@ -1,0 +1,93 @@
+[
+    {
+        "Name": "Janina",
+        "Datum": "01.01.2022",
+        "zurueckgelegte_Km": "10",
+        "zurueckgelegte_Hm": "10",
+        "Dauer": "1"
+    },
+    {
+        "Name": "Janina",
+        "Datum": "12.03.2021",
+        "zurueckgelegte_Km": "20",
+        "zurueckgelegte_Hm": "40",
+        "Dauer": "2"
+    },
+    {
+        "Name": "Anne",
+        "Datum": "03.03.2020",
+        "zurueckgelegte_Km": "24",
+        "zurueckgelegte_Hm": "600",
+        "Dauer": "6"
+    },
+    {
+        "Name": "Laura",
+        "Datum": "16.07.2022",
+        "zurueckgelegte_Km": "40",
+        "zurueckgelegte_Hm": "200",
+        "Dauer": "6"
+    },
+    {
+        "Name": "Laura",
+        "Datum": "23.04.2021",
+        "zurueckgelegte_Km": "5",
+        "zurueckgelegte_Hm": "700",
+        "Dauer": "4.6"
+    },
+    {
+        "Name": "Anne",
+        "Datum": "20.05.2020",
+        "zurueckgelegte_Km": "34",
+        "zurueckgelegte_Hm": "400",
+        "Dauer": "3"
+    },
+    {
+        "Name": "Anne",
+        "Datum": "05.06.2022",
+        "zurueckgelegte_Km": "8",
+        "zurueckgelegte_Hm": "500",
+        "Dauer": "3.2"
+    },
+    {
+        "Name": "Janina",
+        "Datum": "06.06.2022",
+        "zurueckgelegte_Km": "5",
+        "zurueckgelegte_Hm": "700",
+        "Dauer": "5.2"
+    },
+    {
+        "Name": "Anne",
+        "Datum": "15.06.2021",
+        "zurueckgelegte_Km": "46",
+        "zurueckgelegte_Hm": "780",
+        "Dauer": "12"
+    },
+    {
+        "Name": "Janina",
+        "Datum": "08.06.2022",
+        "zurueckgelegte_Km": "40",
+        "zurueckgelegte_Hm": "700",
+        "Dauer": "8"
+    },
+    {
+        "Name": "Laura",
+        "Datum": "07.06.2022",
+        "zurueckgelegte_Km": "8",
+        "zurueckgelegte_Hm": "600",
+        "Dauer": "2.5"
+    },
+    {
+        "Name": "Laura",
+        "Datum": "02.05.2021",
+        "zurueckgelegte_Km": "6",
+        "zurueckgelegte_Hm": "430",
+        "Dauer": "7"
+    },
+    {
+        "Name": "Anne",
+        "Datum": "07.06.2022",
+        "zurueckgelegte_Km": "4",
+        "zurueckgelegte_Hm": "800",
+        "Dauer": "3.5"
+    }
+]
