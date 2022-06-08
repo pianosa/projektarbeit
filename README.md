@@ -45,6 +45,7 @@ Je nach Verlauf der erfassten Daten besteht die Möglichkeit, eine Kategorie auf
 
 ##Architektur
 
+![](static/Flowchart/Flowchart_Mountrainer.jpg)
 ##Anleitung/Walkthrough
 
 ##Ungelöste Probleme

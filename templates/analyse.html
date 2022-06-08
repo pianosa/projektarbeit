@@ -9,9 +9,9 @@
     <nav class="container-fluid p-3 p-md-3 navbar-expand navbar-light bg-light">
           <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
-            <li class="nav-item"><a href="/formular" class="nav-link">Dateneingabe</a></li>
-            <li class="nav-item"><a href="/analyse" class="nav-link active">Analyse</a></li>
-            <li class="nav-item"><a href="/deinjahr" class="nav-link">Dein Jahr</a></li>
+            <li class="nav-item"><a href="/formular" class="nav-link">Erfassung</a></li>
+            <li class="nav-item"><a href="/analyse" class="nav-link active">Wanderungen</a></li>
+            <li class="nav-item"><a href="/deinjahr" class="nav-link">Auswertung</a></li>
           </ul>
     </nav>
     <br>
@@ -43,6 +43,8 @@
         {% else %}
             <p> Keine Einträge vorhanden.</p>
         {% endif %}
+        <br>
+        <a class="btn btn-secondary" href="/formular/" role="button">Neuer Eintrag</a>
     </div>
 
 
