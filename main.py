@@ -1,40 +1,40 @@
-from flask import Flask
-from flask import render_template
-from flask import request
-import json
-from json import loads
-import plotly.express as px
-from plotly.offline import plot
+from flask import Flask  # DOM-Tree Architektur (DOM = Document Object Model)
+from flask import render_template  # Ausgabe von HTML-Dokumenten
+from flask import request  # Datenübergabe (persistente Daten) für GET- / POST-Verfahren
+import json  # JavaScript Objekt Notation: JavaScript Nutzung
+from json import loads  # JSON String einlesen in Python
+import plotly.express as px  # Datenvisualisierung mit Diagramm
+from plotly.offline import plot  # Datenvisualisierung auch im Offline-Modus möglich
 
 
 app = Flask("Mountrainer")
 
 
 @app.route("/")  # Verlinkung Hauptseite
-def index():
+def index():  # Home-Seite: keine weitere Definition ausser Ausgabe index.html
     return render_template("index.html")
 
 
 @app.route("/formular/", methods=["GET", "POST"])  # Verlinkung Formular
-def formular():
-    if request.method == "POST":
-        data = request.form
-        name = data["name"]
+def formular():  # Definition hinter dem Formular
+    if request.method == "POST":  # POST = Dateneingabe und danach Speicherung in JSON
+        data = request.form  # request = Daten werden von Formular übergeben
+        name = data["name"]  # Variable wird für einzelne Eingaben definiert
         datum = data["datum"]
-        zurueckgelegte_Km = data["zurueckgelegte_Km"]
-        zurueckgelegte_Hm = data["zurueckgelegte_Hm"]
+        zurueckgelegte_km = data["zurueckgelegte_km"]
+        zurueckgelegte_hm = data["zurueckgelegte_hm"]
         dauer = data["dauer"]
         try:
-            with open("aktivitaeten.json", "r") as open_file:  # r für read = lesen
+            with open("aktivitaeten.json", "r") as open_file:  # r für read = lesen, falls JSON-Datei schon vorhanden
                 datei_inhalt = json.load(open_file)
         except FileNotFoundError:
-            datei_inhalt = []
+            datei_inhalt = []  # Wenn JSON noch nicht erstellt, wird neue Liste angelegt mit Namen datei_inhalt
 
-        my_dict = {"Name": name, "Datum": datum, "zurueckgelegte_Km": zurueckgelegte_Km,
-                   "zurueckgelegte_Hm": zurueckgelegte_Hm, "Dauer": dauer}
-        datei_inhalt.append(my_dict)
+        my_dict = {"Name": name, "Datum": datum, "zurueckgelegte_km": zurueckgelegte_km,
+                   "zurueckgelegte_hm": zurueckgelegte_hm, "Dauer": dauer}  # Variablen werden in ein Dictionary gezogen
+        datei_inhalt.append(my_dict)  # einzelne Formular-Füllungen werden als Dictionary der JSON-Datei hinzugefügt
 
-        with open("aktivitaeten.json", "w") as open_file:
+        with open("aktivitaeten.json", "w") as open_file:  # w für write = schreiben, falls JSON-Datei noch nicht vorhanden
             json.dump(datei_inhalt, open_file, indent=4)  # indent=4 sieht schöner aussieht
         return render_template("bestaetigung.html")
     else:
@@ -44,8 +44,9 @@ def formular():
 @app.route("/analyse/")   # Verlinkung Wanderungen
 def analyse():
     with open("aktivitaeten.json") as open_file:
-        json_as_string = open_file.read()
-        daten_inhalt = loads(json_as_string)
+        json_as_string = open_file.read()  # Lese-Zugriff auf JSON Datei
+        daten_inhalt = loads(json_as_string)  # loads = JSON String einlesen in Python, Daten in Dictionary im JSON
+        # Quelle: https://hellocoding.de/blog/coding-language/python/json-verwenden
     return render_template("analyse.html", daten_inhalt=daten_inhalt)
 
 
@@ -55,6 +56,7 @@ def berechnung():  # Berechnung Summe der Attribute einer Wanderung
         json_as_string = open_file.read()
         daten_inhalt = loads(json_as_string)
 
+    #  Startsumme für Variablen in Berechnungen
     summe_km_janina = 0
     summe_hm_janina = 0
     summe_h_janina = 0
@@ -68,34 +70,34 @@ def berechnung():  # Berechnung Summe der Attribute einer Wanderung
     for eintrag in daten_inhalt:  # for-Schleife um Summe zu ziehen für Kilometer
         if eintrag["Name"] == "Janina":
             try:
-                summe_km_janina += float(eintrag["zurueckgelegte_Km"])
+                summe_km_janina += float(eintrag["zurueckgelegte_km"])
             except:
                 continue
         elif eintrag["Name"] == "Anne":
             try:
-                summe_km_anne += float(eintrag["zurueckgelegte_Km"])
+                summe_km_anne += float(eintrag["zurueckgelegte_km"])
             except:
                 continue
         elif eintrag["Name"] == "Laura":
             try:
-                summe_km_laura += float(eintrag["zurueckgelegte_Km"])
+                summe_km_laura += float(eintrag["zurueckgelegte_km"])
             except:
                 continue
 
     for eintrag in daten_inhalt:  # for-Schleife um Summe zu ziehen für Höhenmeter
         if eintrag["Name"] == "Janina":
             try:
-                summe_hm_janina += float(eintrag["zurueckgelegte_Hm"])
+                summe_hm_janina += float(eintrag["zurueckgelegte_hm"])
             except:
                 continue
         elif eintrag["Name"] == "Anne":
             try:
-                summe_hm_anne += float(eintrag["zurueckgelegte_Hm"])
+                summe_hm_anne += float(eintrag["zurueckgelegte_hm"])
             except:
                 continue
         elif eintrag["Name"] == "Laura":
             try:
-                summe_hm_laura += float(eintrag["zurueckgelegte_Hm"])
+                summe_hm_laura += float(eintrag["zurueckgelegte_hm"])
             except:
                 continue
 
@@ -116,10 +118,10 @@ def berechnung():  # Berechnung Summe der Attribute einer Wanderung
             except:
                 continue
 
-    balkendiagramm_hm = px.bar(
-            x=["Janina", "Anne", "Laura"],
-            y=[summe_hm_janina, summe_hm_anne, summe_hm_laura],
-            labels={"x": "Name", "y": "Anzahl hm"}
+    balkendiagramm_hm = px.bar(  # Balkendiagramm mit plotly
+            x=["Janina", "Anne", "Laura"],  # Daten für x-Achse des Diagramms
+            y=[summe_hm_janina, summe_hm_anne, summe_hm_laura],  # Daten für y-Achse des Diagramms
+            labels={"x": "Name", "y": "Anzahl hm"}  # Achsenbeschriftung
     )
     div_balkendiagramm_hm = plot(balkendiagramm_hm, output_type="div")  # Balkendiagramm für Vergleich Höhenmeter
 
@@ -152,7 +154,7 @@ def berechnung():  # Berechnung Summe der Attribute einer Wanderung
                            balkendiagramm_h=div_balkendiagramm_h)
 
 
-@app.route("/bestaetigung/", methods=["GET", "POST"])  # kein verlinkter Menu-Punkt aber eine Seite für Bestätigung
+@app.route("/bestaetigung/")  # kein verlinkter Menu-Punkt aber eine Seite für Bestätigung
 def bestaetigung():
     return render_template("bestaetigung.html")
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <title>Mountrainer</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
     <div class="container-fluid">
         <h3>Rückblick auf das Jahr deiner Wandertruppe</h3> <br>
         <h6>Janina:</h6>
-        <p>Anzahl km: {{ summe_km_janina }}</p>
+        <p>Anzahl km: {{ summe_km_janina }}</p> <!-- Datenbezug aus Berechnung-Definition in Main-Python-Datei, json -->
         <p>Anzahl hm: {{ summe_hm_janina }}</p>
         <p>Anzahl h: {{ summe_h_janina }}</p><br>
         <h6>Anne:</h6>
@@ -34,7 +34,7 @@
 
     <div class="container-fluid"> <!-- Hier werden 3 Diagramme aufgezeigt -->
         <h5>Übersicht Kilometer:</h5>
-        {{ balkendiagramm_km|safe }}
+        {{ balkendiagramm_km|safe }} <!-- safe = unveränderte Datenübergabe mit Jinja Code -->
         <br>
 
         <h5>Übersicht Höhenmeter:</h5>

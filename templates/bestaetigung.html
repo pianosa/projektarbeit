@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <title>Mountrainer</title>
 </head>
-<body>
-    <nav class="container-fluid p-3 p-md-3 navbar-expand navbar-light bg-light">
+<body> <!-- HTML-Seite wird nur aufgeführt, wenn Formular abgeschickt als Bestätigung. -->
+    <nav class="container-fluid p-3 p-md-3 navbar-expand navbar-light bg-light"><!-- Navigationsbar hell,
+    in jeder HTML-Datei einzeln, dass Button des aktuellen Standorts als aktiv gekennzeichnet werden kann -->
           <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="/formular" class="nav-link active">Erfassung</a></li>

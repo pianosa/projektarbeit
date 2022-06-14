@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <title>Mountrainer</title>
 </head>
 <body>
-    <nav class="container-fluid p-3 p-md-3 navbar-expand navbar-light bg-light">
+    <nav class="container-fluid p-3 p-md-3 navbar-expand navbar-light bg-light"> <!-- Navigationsbar hell,
+    in jeder HTML-Datei einzeln, dass Button des aktuellen Standorts als aktiv gekennzeichnet werden kann -->
           <ul class="nav nav-pills">
             <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="/formular" class="nav-link">Erfassung</a></li>
@@ -19,11 +20,11 @@
     <div class="container-fluid table-responsive"> <!-- Tabelle mit Daten aus json-Datei -->
         <h3>Übersicht aller Aktivitäten</h3>
         <br>
-        {% if daten_inhalt %}  <!-- Jinja Code: Verbindung Python und HTML -->
+        {% if daten_inhalt %}  <!-- Jinja Code: Verbindung Python und HTML: if-Bedingung für Tabelle (Liste) -->
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Name</th> <!-- th = Spaltentitel -->
                         <th>Datum</th>
                         <th>Kilometer</th>
                         <th>Hoehenmeter</th>
@@ -31,21 +32,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for eintrag in daten_inhalt: %} <!-- for-Schleife mit Jinja für Liste in json-Datei -->
+                    {% for eintrag in daten_inhalt: %} <!-- for-Schleife mit Jinja if-Schleife für Tabelle (Dictionary) in json-Datei -->
                     <tr>
-                        {% for item, value in eintrag.items(): %} <!-- for-Schleife mit Jinja für Dictionary in Liste in json -->
-                        <td>{{ value }}</td>
-                        {% endfor %}
+                        {% for item, value in eintrag.items(): %} <!-- for-Schleife mit Jinja für Werte in Dictionary in Liste in json-Datei -->
+                        <td>{{ value }}</td> <!-- Bezug einzelner Werte -->
+                        {% endfor %} <!-- Ende von for-Schleife -->
                     </tr>
-                    {% endfor %}
+                    {% endfor %} <!-- Ende von for-Schleife -->
                 </tbody>
             </table>
-        {% else %}
+        {% else %} <!-- wenn Bedingung if nicht erfüllt -->
             <p> Keine Einträge vorhanden.</p>
-        {% endif %}
+        {% endif %} <!-- Ende der if-Abfrage -->
         <br>
-        <a class="btn btn-secondary" href="/formular/" role="button">Neuer Eintrag</a> <!-- Link auf Formular -->
+        <a class="btn btn-secondary" href="/formular/" role="button">Neuer Eintrag</a> <!-- Button mit Link auf Formular -->
     </div>
 
 
-{% include "footer.html" %}
+{% include "footer.html" %} <!-- Integration Footer von seperater HTML-Datei -->

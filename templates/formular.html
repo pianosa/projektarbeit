@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
     <title>Mountrainer</title>
 </head>
 <body>
@@ -19,32 +19,32 @@
         <h3>Datenerfassung</h3>
         <p>Erfasse hier deine Daten um eine Analyse deiner Abenteuer zu machen.</p>
             <form method="POST"> <!-- Datenerfassung für die json-Datei im Post-Verfahren; persistente Daten -->
-            <select class="form-select" aria-label="Default select example" name="name">
-                <option selected>Wähle deinen Namen</option> <!-- Dropdown -->
-                <option value="Janina">Janina</option>
+            <select class="form-select" aria-label="Default select example" name="name"> <!-- form-select = Dropdown -->
+                <option selected>Wähle deinen Namen</option> <!-- Dropdown-Feld Aufforderung -->
+                <option value="Janina">Janina</option> <!-- 1 Element aus Dropdown -->
                 <option value="Anne">Anne</option>
                 <option value="Laura">Laura</option>
             </select>
 
             <br>
 
-            <div class="form-group"> <!-- freie Texteingabe -->
-               <label for="datum">Wann hast du deine Wanderung gemacht?</label>
+            <div class="form-group"> <!-- freie Texteingabe im Formular -->
+               <label for="datum">Wann hast du deine Wanderung gemacht?</label> <!-- datum wird mit Eingabe befüllt -->
                 <input type="text" class="form-control" id="datum" placeholder="Datum der Wanderung (Format: 02.05.2002)" name="datum">
             </div>
 
             <br>
 
              <div class="form-group">
-               <label for="zurueckgelegte_Km">Wie viele Kilometer hast du mit deiner Wanderung gemacht?</label>
-                <input type="text" class="form-control" id="zurueckgelegte_Km" placeholder="Anzahl Zurückgelegte Km" name="zurueckgelegte_Km">
+               <label for="zurueckgelegte_km">Wie viele Kilometer hast du mit deiner Wanderung gemacht?</label>
+                <input type="text" class="form-control" id="zurueckgelegte_km" placeholder="Anzahl Zurückgelegte Km" name="zurueckgelegte_km">
             </div>
 
             <br>
 
             <div class="form-group">
-               <label for="zurueckgelegte_Hm">Wie viele Hoehenmeter hast du mit deiner Wanderung gemacht?</label>
-                <input type="text" class="form-control" id="zurueckgelegte_Hm" placeholder="Anzahl Zurückgelegte Hm" name="zurueckgelegte_Hm">
+               <label for="zurueckgelegte_hm">Wie viele Hoehenmeter hast du mit deiner Wanderung gemacht?</label>
+                <input type="text" class="form-control" id="zurueckgelegte_hm" placeholder="Anzahl Zurückgelegte Hm" name="zurueckgelegte_hm">
             </div>
 
             <br>
@@ -56,7 +56,7 @@
 
             <br>
 
-            <button type="submit" class="btn btn-secondary btn-md btn-block">Senden</button>
+            <button type="submit" class="btn btn-secondary btn-md btn-block">Senden</button> <!-- Button zum Senden des Formulars -->
 
             </form>
     </div>

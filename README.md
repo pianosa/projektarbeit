@@ -34,7 +34,7 @@ Wanderdaten pro Gruppenmitglied aus und gibt diese in Form einer Liste sowie vis
 unter "Auswertung" aus.
 
 ##Betrieb
- - Zu installierende Pakete: Flask, Jinja2, pandas, plotly, Bootstrap
+ - Zu installierende Pakete: Json, Flask, Jinja2, plotly, Bootstrap, Request
  - Auszuführende Datei: main.py in Datei "Projektarbeit" in der Entwicklungsumgebung PyCharm
  
 ##Architektur
@@ -59,3 +59,5 @@ Active-Button gekennzeichnet werden kann. Das könnte bestimmt noch verbessert w
 werden. Das würde die Ladezeit der Applikation verkürzen.
 - Die Tabelle der Wanderungen könnte optimiert werden, indem man einzelne Spalten filtern oder die Reihenfolge 
 steuern kann. 
+- Das Formular nimmt aktuell auch unvollständige Daten entgegen, dies könnte verbessert werden, indem es zwingend in 
+jedem Feld Daten benötigt für das Absenden. 
