@@ -40,7 +40,7 @@ unter "Auswertung" aus.
 ## Architektur
 ![](static/Flowchart/Flowchart_Mountrainer.jpg)
 
-## Ungelöste Probleme
+##  Ungelöste Probleme
 - Nicht gelöst wurde die Einteilung von einzelnen Mitglieder der Wandergruppe in eine "Bergsteiger-Kategorie", welche
 mit folgenden Grenzen angedacht war:
   - Murmeltier (5'000 hm)
