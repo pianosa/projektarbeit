@@ -34,13 +34,13 @@ Wanderdaten pro Gruppenmitglied aus und gibt diese in Form einer Liste sowie vis
 unter "Auswertung" aus.
 
 ## Betrieb
- - Zu installierende Pakete: Json, Flask, Jinja2, plotly, Bootstrap, Request
+ - Zu installierende Pakete: Json, Flask, Jinja2, Plotly, Bootstrap, Request
  - Auszuführende Datei: main.py in Datei "Projektarbeit" in der Entwicklungsumgebung PyCharm
  
 ## Architektur
 ![](static/Flowchart/Flowchart_Mountrainer.jpg)
 
-##  Ungelöste Probleme
+## Ungelöste Probleme
 - Nicht gelöst wurde die Einteilung von einzelnen Mitglieder der Wandergruppe in eine "Bergsteiger-Kategorie", welche
 mit folgenden Grenzen angedacht war:
   - Murmeltier (5'000 hm)
