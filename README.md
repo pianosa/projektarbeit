@@ -1,19 +1,19 @@
 # Mountrainer
 
-##Inhalt
+## Inhalt
 1. Ausgangslage des Projekts
 2. Funktion/Projektidee
 3. Betrieb
 4. Architektur
 6. Ungelöste Probleme
 
-##Ausgangslage des Projekts
+## Ausgangslage des Projekts
 Ziel dieses Projekts soll sein, mich mit der Programmiersprache Python vertraut zu machen und an einer praktischen 
 Umsetzung einer Web-Applikation zu versuchen. Nach der Ideensammlung wurde mir klar, ich sollte eine Anwendung 
 programmieren, welche mir Freude bereitet und mich zur Weiterentwicklung motiviert. Dabei entstand der Ansatz, eine
 Anwendung zu erstellen, welche als persönliches Gipfelbuch für meine Wandergruppe fungiert. 
 
-##Funktion/Projektidee
+## Funktion/Projektidee
 Was füllt man in ein Tagebuch ab? Genau, Daten über das eigene Wohlbefinden und Geschehnisse der Vergangeheit vielleicht 
 auch Gedanken über die Zukunft. Und in ein Gipfelbuch? Etwa das Ähnliche, einfach mit Bezug auf das Erklimmen des 
 entsprechenden Bergs. Wie wäre es jetzt also, wenn man diese Funktionen kombiniert und noch einen kleinen Wettbewerb 
@@ -33,14 +33,14 @@ resp. deren Daten in einer Tabelle unter dem Reiter "Wanderungen" aus. Zudem ber
 Wanderdaten pro Gruppenmitglied aus und gibt diese in Form einer Liste sowie visualisiert in Diagrammen 
 unter "Auswertung" aus.
 
-##Betrieb
+## Betrieb
  - Zu installierende Pakete: Json, Flask, Jinja2, plotly, Bootstrap, Request
  - Auszuführende Datei: main.py in Datei "Projektarbeit" in der Entwicklungsumgebung PyCharm
  
-##Architektur
+## Architektur
 ![](static/Flowchart/Flowchart_Mountrainer.jpg)
 
-##Ungelöste Probleme
+## Ungelöste Probleme
 - Nicht gelöst wurde die Einteilung von einzelnen Mitglieder der Wandergruppe in eine "Bergsteiger-Kategorie", welche
 mit folgenden Grenzen angedacht war:
   - Murmeltier (5'000 hm)
